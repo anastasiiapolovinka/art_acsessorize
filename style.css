@@ -1,0 +1,267 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html, body, h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app .footer .item, .app .main .tab, .app .aside .item {
+  color: #000;
+}
+
+body {
+  background-color: #FFF;
+}
+@media screen and (min-width: 480px) {
+  body {
+    background-color: #F0F1F3;
+  }
+}
+
+.app {
+  margin: auto;
+  max-width: 1240px;
+}
+.app .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px 16px 70px;
+}
+@media screen and (min-width: 480px) {
+  .app .container {
+    flex-direction: row;
+    padding: 60px 0 24px;
+    gap: 20px;
+  }
+}
+.app .header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.app .header .back_btn {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  fill: #999;
+}
+.app .header .back_btn:hover {
+  fill: #FFB13C;
+}
+@media screen and (min-width: 480px) {
+  .app .header {
+    display: none;
+  }
+}
+.app .aside {
+  border-radius: 32px 32px 0 0;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 190px;
+  padding: 60px 20px 24px;
+  display: none;
+}
+@media screen and (min-width: 480px) {
+  .app .aside {
+    display: flex;
+  }
+}
+.app .aside .menu {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.app .aside .item:hover {
+  color: #FFB13C;
+}
+.app .aside .item:hover .icon {
+  fill: #FFB13C;
+}
+.app .aside .item {
+  display: flex;
+  gap: 10px;
+}
+.app .aside .icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.app .main {
+  border-radius: 32px 32px 0 0;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 35px 0 0;
+}
+@media screen and (min-width: 480px) {
+  .app .main {
+    flex-direction: row;
+    padding: 60px 104px 44px;
+  }
+}
+.app .main .avatar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (min-width: 480px) {
+  .app .main .avatar {
+    position: absolute;
+    left: 105px;
+  }
+}
+.app .main .pencil_icon {
+  position: absolute;
+  right: calc(50% - 60px);
+  bottom: 0;
+}
+@media screen and (min-width: 480px) {
+  .app .main .pencil_icon {
+    right: 0;
+    bottom: 4px;
+  }
+}
+.app .main .wrapper {
+  width: 100%;
+}
+@media screen and (min-width: 480px) {
+  .app .main .wrapper {
+    width: 610px;
+  }
+}
+.app .main .tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+@media screen and (min-width: 480px) {
+  .app .main .tabs {
+    flex-direction: row;
+    gap: 125px;
+    margin-top: 74px;
+  }
+}
+.app .main .tab {
+  min-width: 190px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #F8F8F8;
+}
+.app .main .form_items {
+  padding-top: 35px;
+}
+@media screen and (min-width: 480px) {
+  .app .main .form_items {
+    padding-top: 40px;
+  }
+}
+.app .main .form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0 55px;
+}
+@media screen and (min-width: 480px) {
+  .app .main .form {
+    adding: 30px 0 60px;
+  }
+}
+.app .main .field {
+  position: relative;
+}
+.app .main .field label {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+}
+.app .main .field input {
+  width: 100%;
+  padding: 23px 15px 7px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: #F8F8F8;
+}
+.app .main .field input:hover, .app .main .field input:focus, .app .main .field input:focus-visible, .app .main .field input:active {
+  background-color: #FFF;
+  border-color: #FFB13C;
+  outline: none;
+  caret-color: #FFB13C;
+}
+.app .main .field input:invalid {
+  border-color: #D50C0C;
+}
+.app .main .field input:disabled {
+  border-color: #CECECE;
+  background-color: #FFF;
+}
+.app .main .field input:disabled + label {
+  color: #CECECE;
+}
+.app .main .field input:hover + label, .app .main .field input:focus + label, .app .main .field input:focus-visible + label, .app .main .field input:active + label, .app .main .field input:invalid + label {
+  top: 7px;
+  font-size: 12px;
+  color: #CECECE;
+}
+.app .footer {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
+  padding: 10px 15px 35px;
+  gap: 30px;
+  background: #FFF;
+  border-top: 1px solid #CECECE;
+}
+@media screen and (min-width: 480px) {
+  .app .footer {
+    display: none;
+  }
+}
+.app .footer .item {
+  font-size: 10px;
+}
+.app .footer .item:hover {
+  color: #FFB13C;
+}
+.app .footer .item:hover .icon {
+  fill: #FFB13C;
+}
+.app .footer .icon {
+  display: block;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=style.css.map */

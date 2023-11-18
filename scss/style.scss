@@ -1,0 +1,295 @@
+$b-radius-l: 32px;
+$b-radius-m: 12px;
+$b-radius-s: 8px;
+
+$txt-size-xxs: 10px;
+$txt-size-xs: 12px;
+$txt-size-s: 16px;
+$txt-size-m: 24px;
+
+$txt-color-1: #000;
+$txt-color-2: #999;
+
+$txt-weight-s: 400;
+$txt-weight-m: 600;  
+
+$color-1: #000;
+$color-2: #FFB13C;
+$color-3: #D50C0C;
+$color-4: #F0F1F3;
+$color-5: #CECECE;
+$color-6: #FFF;
+$color-7: #F8F8F8;
+
+$xl-screen: 1200px;
+$l-screen: 1024px;
+$m-screen: 768px;
+$s-screen: 480px;
+
+
+@use 'reset';
+
+@mixin card() {
+   border-radius: $b-radius-l $b-radius-l 0 0;
+   background-color: $color-6;
+}
+@mixin flex_col() {
+   display: flex;
+   flex-direction: column;
+}
+@mixin icon() {
+   display: block;
+   width: 20px;
+   height: 20px;
+}
+
+%link {
+   color: $txt-color-1;
+}
+
+body {
+   background-color: $color-6;
+
+   @media screen and (min-width: $s-screen) {
+      background-color: $color-4;
+   }
+}
+
+.app {
+   margin: auto;
+   max-width: 1240px;
+
+   .container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 16px 16px 70px;
+
+      @media screen and (min-width: $s-screen) {
+         flex-direction: row;
+         padding: 60px 0 24px;
+         gap: 20px;
+      }
+   }
+
+   // HEADER
+
+   .header {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      .back_btn {
+         @include icon;
+         position: absolute;
+         left: 0;
+         fill: $txt-color-2;
+      }
+      .back_btn:hover {
+         fill: $color-2;
+      }
+
+      @media screen and (min-width: $s-screen) {
+         display: none;
+      }
+   }
+   
+   
+   // SIDEBAR
+   .aside {
+      @include card;
+      @include flex_col;
+      justify-content: space-between;
+      width: 190px;
+      padding: 60px 20px 24px;
+      display: none;
+
+      @media screen and (min-width: $s-screen) {
+         display: flex;
+      }
+
+      .menu {
+         @include flex_col;
+         gap: 60px;
+      }
+      .item:hover {
+         color: $color-2;
+         .icon {
+            fill: $color-2;
+         }
+       }
+      .item {
+         @extend %link;
+         display: flex;
+         gap: 10px;
+      }
+      .icon {
+         @include icon; 
+      }
+   }
+   
+   // MAIN
+   .main {
+      @include card;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-grow: 1;
+      justify-content: center;
+      padding: 35px 0 0;
+
+      @media screen and (min-width: $s-screen) {
+         flex-direction: row;
+         padding: 60px 104px 44px;
+      }
+
+      .avatar {
+         display: flex;
+         justify-content: center;
+         position: relative;
+
+         @media screen and (min-width: $s-screen) {
+            position: absolute;
+            left: 105px;
+         }
+      }
+      .pencil_icon {
+         position: absolute;
+         right: calc(50% - 60px);;
+         bottom: 0;
+
+         @media screen and (min-width: $s-screen) {
+            right: 0;
+            bottom: 4px;
+         }
+      }
+
+      .wrapper {
+         width: 100%;
+
+         @media screen and (min-width: $s-screen) {
+            width: 610px;
+         }
+
+      }
+      
+      .tabs{
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+         gap: 10px;
+         margin-top: 30px;
+
+         @media screen and (min-width: $s-screen) {
+            flex-direction: row;
+            gap: 125px;
+            margin-top: 74px;
+         }
+      }
+
+      .tab {
+         @extend %link;
+         min-width: 190px;
+         text-align: center;
+         font-weight: $txt-weight-m;
+         border-radius: $b-radius-m;
+         padding: 10px;
+         background-color: $color-7;
+      }
+
+      .form_items {
+         padding-top: 35px;
+
+         @media screen and (min-width: $s-screen) {
+            padding-top: 40px;
+         }
+      }
+      .form {
+         @include flex_col;
+         gap: 40px;
+         padding: 20px 0 55px;
+
+         @media screen and (min-width: $s-screen) {
+            adding: 30px 0 60px;
+         }
+      }
+
+      .field {
+         position: relative;
+
+         label {
+            position: absolute;
+            top: 13px;
+            left: 15px;
+            color: $txt-color-2;
+            font-size: $txt-size-s;
+            font-weight: $txt-weight-s;
+         }
+         input {
+            width: 100%;
+            padding: 23px 15px 7px;
+            justify-content: space-between;
+            align-items: center;
+            align-self: stretch;
+            border: 1px solid transparent;
+            border-radius: $b-radius-s;
+            background-color: $color-7;
+         }
+         input:hover, input:focus, input:focus-visible, input:active {
+            background-color: $color-6;
+            border-color: $color-2;
+            outline: none;
+            caret-color: $color-2;
+         }
+         input:invalid {
+            border-color: $color-3;
+         }
+         input:disabled {
+            border-color: $color-5;
+            background-color: $color-6;
+         }
+         input:disabled + label {
+            color: $color-5;
+         }
+         input:hover + label, input:focus + label, input:focus-visible + label, input:active + label, input:invalid + label {
+            top: 7px;
+            font-size: $txt-size-xs;
+            color: $color-5;
+         }
+      }  
+   }
+
+
+   // FOOTER
+   .footer {
+      display: flex;
+      position: fixed;
+      justify-content: space-between;
+      width: 100%;
+      bottom: 0;
+      padding: 10px 15px 35px;
+      gap: 30px;
+      background: $color-6;
+      border-top: 1px solid $color-5;
+
+      @media screen and (min-width: $s-screen) {
+         display: none;
+      }
+
+      .item {
+         @extend %link;
+         font-size: $txt-size-xxs;
+      }
+      .item:hover {
+         color: $color-2;
+         .icon {
+            fill: $color-2;
+         }
+       }
+      .icon {
+         display: block;
+         margin: auto;
+         width: 24px;
+         height: 24px; 
+      }
+   }
+}
